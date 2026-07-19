@@ -1,0 +1,50 @@
+name: tyc_partner
+description: "TYC Partner — internal tool for retail store employees to process golf club trade-ins on behalf of TradeYourClubs."
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.4.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Supabase: auth, database (Postgres + RLS), storage
+  supabase_flutter: ^2.8.0
+
+  # Full-screen WebView for the PGA Value Guide tab
+  webview_flutter: ^4.10.0
+
+  # Load Supabase URL + anon key from a gitignored .env file
+  flutter_dotenv: ^5.2.1
+
+  # Space Grotesk (headings) + DM Sans (body) without bundling font binaries
+  google_fonts: ^6.2.1
+
+  # Custom category (club-type) SVG icons on the intake tiles
+  flutter_svg: ^2.0.10+1
+
+  # New Trade-In flow
+  image_picker: ^1.1.2          # in-app camera capture
+  flutter_image_compress: ^2.3.0 # compress photos before upload
+  signature: ^5.5.0             # customer signature pad
+  shared_preferences: ^2.3.2    # persist draft state across crash/background
+  path_provider: ^2.1.4         # app dir for compressed photo files
+  path: ^1.9.0
+
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_lints: ^4.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  # The .env file is loaded at runtime via flutter_dotenv. It is gitignored;
+  # create it from .env.example before running the app.
+  assets:
+    - .env
+    - assets/club_icons/
